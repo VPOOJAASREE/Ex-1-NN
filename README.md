@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME: V. POOJAA SREE</H3>
+<H3>ENTER YOUR REGISTER NO.: 212223040147</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE: 24.08.2024</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,52 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df=pd.read_csv("Churn_Modelling.csv")
+df
+df.isnull().sum()
+df.duplicated()
+print(df['CreditScore'].describe())
+df.info()
+df.drop(['Surname','CustomerId','Geography','Gender'],axis=1,inplace=True)
+df
+scaler=MinMaxScaler()
+df=pd.DataFrame(scaler.fit_transform(df))
+df
+X = df.iloc[:, :-1].values
+print(X)
+y = df.iloc[:,-1].values
+print(y)
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=25)
+print(X_train)
+print(len(X_train))
+print(X_test)
+print(len(X_test))
+
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+![1](https://github.com/user-attachments/assets/cc422c21-6d36-4473-aed7-cd66466ac24f)
+
+![2](https://github.com/user-attachments/assets/d913280b-2aa6-4e6e-84ca-826774d3a9f9)
+
+![3](https://github.com/user-attachments/assets/77bd8f52-7394-4fad-ba30-96bb903b7bc7)
+
+![4,5](https://github.com/user-attachments/assets/f191e6f2-dd4c-4490-8777-64bfa4b42153)
+
+![6](https://github.com/user-attachments/assets/f85415c2-db11-4723-a16a-51f9757db9f0)
+
+![7](https://github.com/user-attachments/assets/14b2ceae-4abb-42d4-a5c1-0bbdae5662a5)
+
+![8,9](https://github.com/user-attachments/assets/8c4dca0d-5473-4b16-b097-c8f3b57975f9)
+
+![10](https://github.com/user-attachments/assets/f9e64ecd-d6c2-4049-b16b-086d61e560c5)
 
 
 ## RESULT:
